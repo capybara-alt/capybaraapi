@@ -1,0 +1,19 @@
+name: BufPush
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup
+        run: make setup
+      - name: make credential file
+        run: echo "${{secrets.BUF_TOKEN}}" > .cred
+      - name: authorize
+        run: buf registry login buf.build --username 'capybara' --token-stdin < .cred
+      - name: push
+        run: make push
