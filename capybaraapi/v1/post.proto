@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 message Post {
   string id = 1;
   string contents = 2;
-  repeated Post child_posts = 3;
+  repeated string child_posts = 3;
   google.protobuf.Timestamp created_at = 4;
 }
 
@@ -16,11 +16,12 @@ message PostSearchQuery {
   optional int32 count = 1;
   optional int32 start = 2;
   optional int32 offset = 3;
-  optional string contents_prefix = 4;
-  optional string contents_suffix = 5;
-  optional string contents_partial = 6;
-  optional google.protobuf.Timestamp start_date = 7;
-  optional google.protobuf.Timestamp end_date = 8;
+  repeated string ids = 4;
+  optional string contents_prefix = 5;
+  optional string contents_suffix = 6;
+  optional string contents_partial = 7;
+  optional google.protobuf.Timestamp start_date = 8;
+  optional google.protobuf.Timestamp end_date = 9;
 }
 
 message GetPostRequest {
