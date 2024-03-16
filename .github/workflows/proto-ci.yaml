@@ -6,9 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: npm version
-        run: npm -v
       - name: setup
         run: make setup
-      - name: make version
-        run: make -v
+      - name: lint
+        run: make lint
