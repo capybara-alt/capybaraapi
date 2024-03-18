@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package capybaraapi.core.v1;
+
+enum Order {
+  ORDER_UNSPECIFIED = 0;
+  ORDER_ASC = 1;
+  ORDER_DESC = 2;
+}
+
+enum StrMatchMethod {
+  STR_MATCH_METHOD_UNSPECIFIED = 0;
+  STR_MATCH_METHOD_PREFIX = 1;
+  STR_MATCH_METHOD_SUFFIX = 2;
+  STR_MATCH_METHOD_PARTIAL = 3;
+}
+
+message PageOptions {
+  int32 count = 1;
+  int32 start = 2;
+  string sort_key = 3;
+  Order order = 4;
+}
