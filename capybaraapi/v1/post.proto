@@ -30,7 +30,7 @@ message GetListPostResponse {
 
 message GetListReplyRequest {
   core.v1.PageOptions options = 1;
-  optional string parent_post = 2;
+  string parent_post = 2;
 }
 
 message GetListReplyResponse {
